@@ -13,7 +13,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 /**
  *
- * @author Andy
+ * @author ToastEngine https://github.com/ToastEngine
  */
 public class plugin extends JavaPlugin{
     Logger Logger = Bukkit.getLogger();
