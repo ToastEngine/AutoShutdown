@@ -3,3 +3,10 @@ main: io.github.toastengine.autoshutdown.plugin
 version: 1.0.3
 description: Timed shutdown of server
 author: ToastEngine
+commands:
+   basic:
+      description: This is a demo command.
+      usage: /<command> [player]
+      permission: AutoShutdown.basic
+      default: op
+      permission-message: You don't have <permission>
