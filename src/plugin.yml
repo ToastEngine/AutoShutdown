@@ -1,5 +1,5 @@
 name: AutoShutdown
 main: io.github.toastengine.autoshutdown.plugin
-version: 1.0.1
+version: 1.0.3
 description: Timed shutdown of server
 author: ToastEngine
