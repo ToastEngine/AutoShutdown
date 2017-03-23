@@ -23,30 +23,30 @@ public class ShutdownTask implements Runnable {
         try {
             Thread.sleep(1000*10);//Thread.sleep(1000 * 60 * 60 * 3);
             Thread.sleep(1000 * 60 * 30);// 3hours 30minutes
-            Bukkit.broadcastMessage(ChatColor.YELLOW + "[" + ChatColor.RED + "AutoRestart" + ChatColor.YELLOW + "] Reboot " + ChatColor.RESET + "in 30 minutes!");
+            Bukkit.broadcastMessage(ChatColor.YELLOW + "[" + ChatColor.RED + "AutoShutdown" + ChatColor.YELLOW + "] Reboot " + ChatColor.RESET + "in 30 minutes!");
             Thread.sleep(1000 * 60 * 10);
-            Bukkit.broadcastMessage(ChatColor.YELLOW + "[" + ChatColor.RED + "AutoRestart" + ChatColor.YELLOW + "] Reboot " + ChatColor.RESET + "in 20 minutes!");
+            Bukkit.broadcastMessage(ChatColor.YELLOW + "[" + ChatColor.RED + "AutoShutdown" + ChatColor.YELLOW + "] Reboot " + ChatColor.RESET + "in 20 minutes!");
             Thread.sleep(1000 * 60 * 10);
-            Bukkit.broadcastMessage(ChatColor.YELLOW + "[" + ChatColor.RED + "AutoRestart" + ChatColor.YELLOW + "] Reboot " + ChatColor.RESET + "in 10 minutes!");
+            Bukkit.broadcastMessage(ChatColor.YELLOW + "[" + ChatColor.RED + "AutoShutdown" + ChatColor.YELLOW + "] Reboot " + ChatColor.RESET + "in 10 minutes!");
             Thread.sleep(1000 * 60 * 5);
-            Bukkit.broadcastMessage(ChatColor.YELLOW + "[" + ChatColor.RED + "AutoRestart" + ChatColor.YELLOW + "] Reboot " + ChatColor.RESET + "in 5 minutes!");
+            Bukkit.broadcastMessage(ChatColor.YELLOW + "[" + ChatColor.RED + "AutoShutdown" + ChatColor.YELLOW + "] Reboot " + ChatColor.RESET + "in 5 minutes!");
             Thread.sleep(1000 * 60 * 4);
-            Bukkit.broadcastMessage(ChatColor.YELLOW + "[" + ChatColor.RED + "AutoRestart" + ChatColor.YELLOW + "] Reboot " + ChatColor.RESET + "in 1 minute!");
+            Bukkit.broadcastMessage(ChatColor.YELLOW + "[" + ChatColor.RED + "AutoShutdown" + ChatColor.YELLOW + "] Reboot " + ChatColor.RESET + "in 1 minute!");
             Thread.sleep(1000 * 30);
-            Bukkit.broadcastMessage(ChatColor.YELLOW + "[" + ChatColor.RED + "AutoRestart" + ChatColor.YELLOW + "] Reboot " + ChatColor.RESET + "in 30 seconds!");
+            Bukkit.broadcastMessage(ChatColor.YELLOW + "[" + ChatColor.RED + "AutoShutdown" + ChatColor.YELLOW + "] Reboot " + ChatColor.RESET + "in 30 seconds!");
             Thread.sleep(1000 * 20);
-            Bukkit.broadcastMessage(ChatColor.YELLOW + "[" + ChatColor.RED + "AutoRestart" + ChatColor.YELLOW + "] Reboot " + ChatColor.RESET + "in 10 seconds!");
+            Bukkit.broadcastMessage(ChatColor.YELLOW + "[" + ChatColor.RED + "AutoShutdown" + ChatColor.YELLOW + "] Reboot " + ChatColor.RESET + "in 10 seconds!");
             for (int i = 9; i >= 1; i--) {
                 Thread.sleep(1000*1);//Thread.sleep(1000);
-                Bukkit.broadcastMessage(ChatColor.YELLOW + "[" + ChatColor.RED + "AutoRestart" + ChatColor.YELLOW + "] Reboot " + ChatColor.RESET + "in " + i + " second(s)!");
+                Bukkit.broadcastMessage(ChatColor.YELLOW + "[" + ChatColor.RED + "AutoShutdown" + ChatColor.YELLOW + "] Reboot " + ChatColor.RESET + "in " + i + " second(s)!");
             }
             // Perform Safe Shutdown.
             for (World worlds : Bukkit.getWorlds()) {
                 worlds.save();
-                Bukkit.broadcastMessage(ChatColor.YELLOW + "[" + ChatColor.RED + "AutoRestart" + ChatColor.YELLOW + "] Reboot " + ChatColor.RESET + "Saving, " + worlds.getName());
+                Bukkit.broadcastMessage(ChatColor.YELLOW + "[" + ChatColor.RED + "AutoShutdown" + ChatColor.YELLOW + "] Reboot " + ChatColor.RESET + "Saving, " + worlds.getName());
             }
             Bukkit.getServer().savePlayers();
-            Bukkit.broadcastMessage(ChatColor.YELLOW + "[" + ChatColor.RED + "AutoRestart" + ChatColor.YELLOW + "] Reboot " + ChatColor.RESET + "Saved!");
+            Bukkit.broadcastMessage(ChatColor.YELLOW + "[" + ChatColor.RED + "AutoShutdown" + ChatColor.YELLOW + "] Reboot " + ChatColor.RESET + "Saved!");
            
             for (Player p : Bukkit.getServer().getOnlinePlayers()) {
                 p.kickPlayer("Server is rebooting check back in 1-2 minutes.");
@@ -54,8 +54,8 @@ public class ShutdownTask implements Runnable {
             Bukkit.getServer().shutdown();
             
         } catch (InterruptedException ex) {
-
-            Logger.getLogger(ShutdownTask.class.getName()).log(Level.SEVERE, null, ex);
+            plugin.Logger.log(Level.INFO, "[AutoShutdown] Shutdown task halted.");
+            //Logger.getLogger(ShutdownTask.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }

@@ -4,9 +4,9 @@ version: 1.0.3
 description: Timed shutdown of server
 author: ToastEngine
 commands:
-   basic:
-      description: This is a demo command.
-      usage: /<command> [player]
-      permission: AutoShutdown.basic
+   as:
+      description: Provides information about the plugin.
+      aliases: [AutoShutdown, autoshutdown]
+      permission: AutoShutdown
       default: op
-      permission-message: You don't have <permission>
+      permission-message: §cYou do not have permission to run that command.
