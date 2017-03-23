@@ -30,6 +30,7 @@ public class plugin extends JavaPlugin {
         Logger.log(Level.INFO, "[AutoShutdown]: Enabled v" + SelfDesc.getVersion());
         ShutdownThread = new Thread(new ShutdownTask());
         ShutdownThread.start();
+        // Help!?
         
     }
 
