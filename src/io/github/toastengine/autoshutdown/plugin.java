@@ -67,11 +67,19 @@ public class plugin extends JavaPlugin {
                     player.sendMessage(Prefix + "/as timeleft");
                     player.sendMessage(Prefix + "/as halt");
                     player.sendMessage(Prefix + "/as start");
-                    player.sendMessage(Prefix + "/as set [minutes]");
                     player.sendMessage(ChatColor.YELLOW + "--------------------[1/1]--------------------");
                 } else if (args[0].equalsIgnoreCase("uptime")) {
                     int src = UptimeTask.getUptime();
-                    player.sendMessage(Prefix + ConvertSecondToHHMMSSString(src)+" H:M:S");
+                    player.sendMessage(Prefix + ConvertSecondToHHMMSSString(src) + " H:M:S");
+                } else if (args[0].equalsIgnoreCase("halt")) {
+                    ShutdownThread.interrupt();
+                    player.sendMessage(Prefix + "Shutdown has been aborted.");
+                } else if (args[0].equalsIgnoreCase("start")) {
+                    ShutdownThread = new Thread(new ShutdownTask());
+                    ShutdownThread.start();
+                    player.sendMessage(Prefix + "Shutdown will commmence in 4 hours.");
+                }else{
+                    player.sendMessage(Prefix+"Malformed command.");
                 }
             }
         } else {
